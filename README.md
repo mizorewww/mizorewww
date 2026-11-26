@@ -32,14 +32,14 @@ First-year undergraduate at [SHIEP](https://www.shiep.edu.cn) in Shanghai. Build
 ### Recent Writing
 
 <!-- WRITING:START -->
-- <samp>2026-11-25</samp> — [用基座大模型给 Rime 离线蒸馏词频与语法模型](https://mizore.blog/posts/rime-llm-word-frequency/)
-- <samp>2026-11-24</samp> — [从 Transformer 的矩阵流转到现代优化器推导（SGD → AdamW → Muon）](https://mizore.blog/posts/from-transformer-matrices-to-muon/) · [<samp>EN</samp>](https://mizore.blog/en/posts/from-transformer-matrices-to-muon/)
-- <samp>2026-11-19</samp> — [当 AI 走进组织：从单兵能力到协同边界的经济学](https://mizore.blog/posts/organizing-intelligence/) · [<samp>EN</samp>](https://mizore.blog/en/posts/organizing-intelligence/)
-- <samp>2026-11-18</samp> — [Glance：一眼问完八个问题，而且敢说“不在”](https://mizore.blog/posts/glance-single-prefill-decision-model/) · [<samp>EN</samp>](https://mizore.blog/en/posts/glance-single-prefill-decision-model/)
-- <samp>2026-11-16</samp> — [如何过爽](https://mizore.blog/posts/live-a-happier-life/) · [<samp>EN</samp>](https://mizore.blog/en/posts/live-a-happier-life/)
-- <samp>2026-11-10</samp> — [在 Google Colab G4 上一键跑 Qwen3.8-Flash-Next (262K 上下文)](https://mizore.blog/posts/colab-g4-qwen38-flash-next-262k/) · [<samp>EN</samp>](https://mizore.blog/en/posts/colab-g4-qwen38-flash-next-262k/)
+- <samp>2026-11-24</samp> — [From Transformer Matrix Flows to Modern Optimizer Derivations (SGD → AdamW → Muon)](https://mizore.blog/en/posts/from-transformer-matrices-to-muon/) · [<samp>ZH</samp>](https://mizore.blog/posts/from-transformer-matrices-to-muon/)
+- <samp>2026-11-19</samp> — [When AI Enters the Firm: The Economics of Individual Competence and Coordination Boundaries](https://mizore.blog/en/posts/organizing-intelligence/) · [<samp>ZH</samp>](https://mizore.blog/posts/organizing-intelligence/)
+- <samp>2026-11-18</samp> — [Glance: Eight Questions in One Forward Pass—and the Nerve to Say “Not There”](https://mizore.blog/en/posts/glance-single-prefill-decision-model/) · [<samp>ZH</samp>](https://mizore.blog/posts/glance-single-prefill-decision-model/)
+- <samp>2026-11-16</samp> — [How to Live a Happier Life](https://mizore.blog/en/posts/live-a-happier-life/) · [<samp>ZH</samp>](https://mizore.blog/posts/live-a-happier-life/)
+- <samp>2026-11-10</samp> — [One-Click Qwen3.8-Flash-Next (262K Context) on Google Colab G4](https://mizore.blog/en/posts/colab-g4-qwen38-flash-next-262k/) · [<samp>ZH</samp>](https://mizore.blog/posts/colab-g4-qwen38-flash-next-262k/)
+- <samp>2026-11-05</samp> — [Save a Little, Then Save a Little More](https://mizore.blog/en/posts/save-a-little-more/) · [<samp>ZH</samp>](https://mizore.blog/posts/save-a-little-more/)
 
-<samp><a href="https://mizore.blog">All posts →</a> · <a href="https://mizore.blog/en/">English archive</a> · <a href="https://mizore.blog/feed.xml">RSS</a></samp>
+<samp><a href="https://mizore.blog/en/">All posts →</a> · <a href="https://mizore.blog">中文</a> · <a href="https://mizore.blog/en/feed.xml">RSS</a></samp>
 <!-- WRITING:END -->
 
 ---

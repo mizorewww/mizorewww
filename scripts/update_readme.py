@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Automatically sync Recent Writing in README.md from mizore.blog RSS feeds."""
+"""Automatically sync Recent Writing in README.md from mizore.blog English RSS feed."""
 
 from __future__ import annotations
 
@@ -14,8 +14,8 @@ import xml.etree.ElementTree as ET
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 README_PATH = ROOT / "README.md"
 
-FEED_ZH_URL = "https://mizore.blog/feed.xml"
 FEED_EN_URL = "https://mizore.blog/en/feed.xml"
+FEED_ZH_URL = "https://mizore.blog/feed.xml"
 MAX_POSTS = 6
 
 
@@ -60,19 +60,19 @@ def parse_rss_items(xml_bytes: bytes) -> list[dict[str, str]]:
 
 
 def build_writing_markdown(
-    zh_items: list[dict[str, str]], en_by_slug: dict[str, str]
+    en_items: list[dict[str, str]], zh_by_slug: dict[str, str]
 ) -> str:
     lines: list[str] = []
-    for post in zh_items[:MAX_POSTS]:
+    for post in en_items[:MAX_POSTS]:
         date_prefix = f"<samp>{post['date']}</samp> — " if post["date"] else ""
-        en_link = en_by_slug.get(post["slug"])
-        en_suffix = f" · [<samp>EN</samp>]({en_link})" if en_link else ""
-        lines.append(f"- {date_prefix}[{post['title']}]({post['link']}){en_suffix}")
+        zh_link = zh_by_slug.get(post["slug"])
+        zh_suffix = f" · [<samp>ZH</samp>]({zh_link})" if zh_link else ""
+        lines.append(f"- {date_prefix}[{post['title']}]({post['link']}){zh_suffix}")
     lines.append("")
     lines.append(
-        '<samp><a href="https://mizore.blog">All posts →</a> · '
-        '<a href="https://mizore.blog/en/">English archive</a> · '
-        '<a href="https://mizore.blog/feed.xml">RSS</a></samp>'
+        '<samp><a href="https://mizore.blog/en/">All posts →</a> · '
+        '<a href="https://mizore.blog">中文</a> · '
+        '<a href="https://mizore.blog/en/feed.xml">RSS</a></samp>'
     )
     return "\n".join(lines)
 
@@ -92,22 +92,22 @@ def replace_section(content: str, marker: str, body: str) -> str:
 def main() -> int:
     readme = README_PATH.read_text(encoding="utf-8")
     try:
-        zh_items = parse_rss_items(http_get(FEED_ZH_URL))
         en_items = parse_rss_items(http_get(FEED_EN_URL))
+        zh_items = parse_rss_items(http_get(FEED_ZH_URL))
     except (urllib.error.URLError, TimeoutError, ET.ParseError) as exc:
         print(f"Failed to fetch RSS feeds: {exc}", file=sys.stderr)
         return 1
 
-    if not zh_items:
-        print("No RSS items found; skipping update.", file=sys.stderr)
+    if not en_items:
+        print("No English RSS items found; skipping update.", file=sys.stderr)
         return 0
 
-    en_by_slug = {item["slug"]: item["link"] for item in en_items if item["slug"]}
+    zh_by_slug = {item["slug"]: item["link"] for item in zh_items if item["slug"]}
     updated = replace_section(
-        readme, "WRITING", build_writing_markdown(zh_items, en_by_slug)
+        readme, "WRITING", build_writing_markdown(en_items, zh_by_slug)
     )
     README_PATH.write_text(updated, encoding="utf-8")
-    print(f"Synced {min(len(zh_items), MAX_POSTS)} posts from mizore.blog.")
+    print(f"Synced {min(len(en_items), MAX_POSTS)} English posts from mizore.blog.")
     return 0
 
 
