@@ -19,43 +19,21 @@
   </samp>
 </p>
 
-Hi, I'm **mizorewww** (**雨夹雪**), a first-year undergraduate at [SHIEP](https://www.shiep.edu.cn) in Shanghai.
-
-I work on low-latency local inference runtimes on Apple Silicon, native desktop software in Swift and Rust, and small utilities that keep everyday workflows simple. Longer notes on code, systems, and quantitative experiments live on [mizore.blog](https://mizore.blog).
-
----
-
-### Selected Work
-
-<!-- PROJECTS:START -->
-#### On-Device AI & Language Models
-
-- **[laya-mlx](https://github.com/mizorewww/laya-mlx)** `Python · MLX` · <samp>★ 7,126</samp>  
-  Native Apple Silicon runtime for Laya typed decision models — 7–14 ms calibrated single-pass decisions on M3 Max without PyTorch or cloud APIs.
-- **[laya-coreml](https://github.com/mizorewww/laya-coreml)** `Python · Core ML` · <samp>★ 1,647</samp>  
-  Validated Core ML and Apple Neural Engine ports for Laya typed decisions (~5 ms short decisions on M3 Max), with reproducible speed and energy benchmarks.
-- **[rime-qwen-freq](https://github.com/mizorewww/rime-qwen-freq)** `C++ · Python` · <samp>★ 66</samp>  
-  Offline unigram word-frequency calibration and PMI `.gram` distillation from open-weight LLMs for the Rime input method engine, with zero runtime latency.
-- **[colab-qwen38-g4](https://github.com/mizorewww/colab-qwen38-g4)** `Python` · <samp>★ 56</samp>  
-  One-click 262K-context NVFP4 deployment of Qwen3.8-Flash-Next (with MTP) on Google Colab G4 GPUs.
-- **[colab-account-changer](https://github.com/mizorewww/colab-account-changer)** `Python` · <samp>★ 44</samp>  
-  Secure multi-account session switcher for the Google Colab CLI.
-
-#### Desktop Apps & Systems Tooling
-
-- **[Rayon](https://github.com/mizorewww/Rayon)** `Swift · Ghostty` · <samp>★ 2,411</samp>  
-  Native macOS SSH server manager pairing a GPU-rendered Ghostty terminal, SFTP file browser, and agentless live Linux/macOS/GPU resource monitor.
-- **[x_gift_bot](https://github.com/mizorewww/x_gift_bot)** `Go` · <samp>★ 1,290</samp>  
-  Self-hosted X Premium gift code platform with AES-256-GCM credential encryption, CLI setup wizard, and web redemption console.
-- **[gdirect](https://github.com/mizorewww/gdirect)** `Rust · libaria2` · <samp>★ 836</samp>  
-  Direct, resumable Google Drive terminal browser, desktop client, and rclone mount over reachable front-end IPs without proxy bottlenecks.
-- **[course2md](https://github.com/mizorewww/course2md)** `Rust` · <samp>★ 531</samp>  
-  Cross-platform desktop app and CLI turning YouTube, Bilibili, or local lecture videos into slide-illustrated Markdown notes with local speech recognition.
-- **[gpui-kit-material](https://github.com/mizorewww/gpui-kit-material)** `Rust · GPUI` · <samp>★ 46</samp>  
-  Material 3 Expressive design tokens, motion, and components for GPUI desktop apps, paired with [gpui-material-symbols](https://github.com/mizorewww/gpui-material-symbols).
-<!-- PROJECTS:END -->
-
----
+<p align="center">
+  <a href="https://github.com/mizorewww">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=mizorewww&show_icons=true&include_all_commits=true&custom_title=GitHub%20Stats&border_radius=12&bg_color=171A16&border_color=2C302A&title_color=E4E6DD&text_color=C4C7BC&icon_color=9FC191&ring_color=9FC191" />
+      <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api?username=mizorewww&show_icons=true&include_all_commits=true&custom_title=GitHub%20Stats&border_radius=12&bg_color=FAF9F6&border_color=DDDED6&title_color=292C28&text_color=3D403B&icon_color=486043&ring_color=486043" />
+      <img height="168" align="center" alt="mizorewww's GitHub Stats" src="https://github-stats-extended.vercel.app/api?username=mizorewww&show_icons=true&include_all_commits=true&custom_title=GitHub%20Stats&border_radius=12&bg_color=FAF9F6&border_color=DDDED6&title_color=292C28&text_color=3D403B&icon_color=486043&ring_color=486043" />
+    </picture>
+  </a>&nbsp;&nbsp;<a href="https://github.com/mizorewww?tab=repositories">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api/top-langs?username=mizorewww&layout=compact&langs_count=8&card_width=340&size_weight=0.5&count_weight=0.5&hide=html,jupyter%20notebook,css&border_radius=12&bg_color=171A16&border_color=2C302A&title_color=E4E6DD&text_color=C4C7BC" />
+      <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api/top-langs?username=mizorewww&layout=compact&langs_count=8&card_width=340&size_weight=0.5&count_weight=0.5&hide=html,jupyter%20notebook,css&border_radius=12&bg_color=FAF9F6&border_color=DDDED6&title_color=292C28&text_color=3D403B" />
+      <img height="168" align="center" alt="Most Used Languages" src="https://github-stats-extended.vercel.app/api/top-langs?username=mizorewww&layout=compact&langs_count=8&card_width=340&size_weight=0.5&count_weight=0.5&hide=html,jupyter%20notebook,css&border_radius=12&bg_color=FAF9F6&border_color=DDDED6&title_color=292C28&text_color=3D403B" />
+    </picture>
+  </a>
+</p>
 
 ### Recent Writing
 
