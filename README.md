@@ -1,14 +1,8 @@
-<p align="center">
-  <a href="https://mizore.blog">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./assets/header-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="./assets/header-light.svg" />
-      <img src="./assets/header-light.svg" alt="mizorewww · 雨夹雪" width="100%" />
-    </picture>
-  </a>
-</p>
+### Hi, I'm mizorewww · 雨夹雪 🌸
 
-<p align="center">
+First-year undergraduate at [SHIEP](https://www.shiep.edu.cn) in Shanghai. Building fast local AI runtimes, native desktop apps, and quiet tools.
+
+<p align="left">
   <samp>
     <a href="https://mizore.blog">blog</a> ·
     <a href="https://mizore.blog/about/">about</a> ·
@@ -19,18 +13,18 @@
   </samp>
 </p>
 
-<p align="center">
+<p align="left">
   <a href="https://github.com/mizorewww">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=mizorewww&show_icons=true&include_all_commits=true&custom_title=GitHub%20Stats&border_radius=12&bg_color=171A16&border_color=2C302A&title_color=E4E6DD&text_color=C4C7BC&icon_color=9FC191&ring_color=9FC191" />
-      <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api?username=mizorewww&show_icons=true&include_all_commits=true&custom_title=GitHub%20Stats&border_radius=12&bg_color=FAF9F6&border_color=DDDED6&title_color=292C28&text_color=3D403B&icon_color=486043&ring_color=486043" />
-      <img height="168" align="center" alt="mizorewww's GitHub Stats" src="https://github-stats-extended.vercel.app/api?username=mizorewww&show_icons=true&include_all_commits=true&custom_title=GitHub%20Stats&border_radius=12&bg_color=FAF9F6&border_color=DDDED6&title_color=292C28&text_color=3D403B&icon_color=486043&ring_color=486043" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=mizorewww&show_icons=true&include_all_commits=true&custom_title=GitHub%20Stats&border_radius=12&bg_color=161316&border_color=36272E&title_color=F4A8C0&text_color=E6DCE0&icon_color=F4A8C0&ring_color=F4A8C0" />
+      <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api?username=mizorewww&show_icons=true&include_all_commits=true&custom_title=GitHub%20Stats&border_radius=12&bg_color=FFF9FB&border_color=F6DCE4&title_color=D86C8E&text_color=4A4246&icon_color=EC8CA9&ring_color=F09BB5" />
+      <img height="172" align="center" alt="mizorewww's GitHub Stats" src="https://github-stats-extended.vercel.app/api?username=mizorewww&show_icons=true&include_all_commits=true&custom_title=GitHub%20Stats&border_radius=12&bg_color=FFF9FB&border_color=F6DCE4&title_color=D86C8E&text_color=4A4246&icon_color=EC8CA9&ring_color=F09BB5" />
     </picture>
   </a>&nbsp;&nbsp;<a href="https://github.com/mizorewww?tab=repositories">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api/top-langs?username=mizorewww&layout=compact&langs_count=8&card_width=340&size_weight=0.5&count_weight=0.5&hide=html,jupyter%20notebook,css&border_radius=12&bg_color=171A16&border_color=2C302A&title_color=E4E6DD&text_color=C4C7BC" />
-      <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api/top-langs?username=mizorewww&layout=compact&langs_count=8&card_width=340&size_weight=0.5&count_weight=0.5&hide=html,jupyter%20notebook,css&border_radius=12&bg_color=FAF9F6&border_color=DDDED6&title_color=292C28&text_color=3D403B" />
-      <img height="168" align="center" alt="Most Used Languages" src="https://github-stats-extended.vercel.app/api/top-langs?username=mizorewww&layout=compact&langs_count=8&card_width=340&size_weight=0.5&count_weight=0.5&hide=html,jupyter%20notebook,css&border_radius=12&bg_color=FAF9F6&border_color=DDDED6&title_color=292C28&text_color=3D403B" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api/top-langs?username=mizorewww&layout=compact&langs_count=8&card_width=350&size_weight=0.5&count_weight=0.5&hide=html,jupyter%20notebook,css&border_radius=12&bg_color=161316&border_color=36272E&title_color=F4A8C0&text_color=E6DCE0" />
+      <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api/top-langs?username=mizorewww&layout=compact&langs_count=8&card_width=350&size_weight=0.5&count_weight=0.5&hide=html,jupyter%20notebook,css&border_radius=12&bg_color=FFF9FB&border_color=F6DCE4&title_color=D86C8E&text_color=4A4246" />
+      <img height="172" align="center" alt="Most Used Languages" src="https://github-stats-extended.vercel.app/api/top-langs?username=mizorewww&layout=compact&langs_count=8&card_width=350&size_weight=0.5&count_weight=0.5&hide=html,jupyter%20notebook,css&border_radius=12&bg_color=FFF9FB&border_color=F6DCE4&title_color=D86C8E&text_color=4A4246" />
     </picture>
   </a>
 </p>
