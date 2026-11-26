@@ -34,7 +34,7 @@ First-year undergraduate at [SHIEP](https://www.shiep.edu.cn) in Shanghai. Build
 
 <!-- CONTRIBUTIONS:START -->
 <p align="left">
-  <a href="https://github.com/longbridge/gpui-kit"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/contrib-1-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/contrib-1-light.svg" /><img align="center" alt="longbridge/gpui-kit (20 commits)" src="./assets/contrib-1-light.svg" /></picture></a>
+  <a href="https://github.com/longbridge/gpui-kit"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/contrib-1-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/contrib-1-light.svg" /><img align="center" alt="longbridge/gpui-kit (30 commits)" src="./assets/contrib-1-light.svg" /></picture></a>
 </p>
 <p align="left">
   <a href="https://github.com/longbridge/gpui-fast"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/contrib-2-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/contrib-2-light.svg" /><img align="center" alt="longbridge/gpui-fast (13 commits)" src="./assets/contrib-2-light.svg" /></picture></a>
