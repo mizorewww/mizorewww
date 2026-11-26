@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Automatically sync Top 6 Repositories and Recent Writing in README.md."""
+"""Automatically sync Top 3 External Contributions and Recent Writing in README.md."""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 README_PATH = ROOT / "README.md"
 
 GITHUB_USER = "mizorewww"
-TOP_REPOS_COUNT = 6
+TOP_CONTRIBS_COUNT = 3
 
 FEED_EN_URL = "https://mizore.blog/en/feed.xml"
 FEED_ZH_URL = "https://mizore.blog/feed.xml"
@@ -44,63 +44,73 @@ def http_get(url: str, headers: dict[str, str] | None = None) -> bytes:
         return resp.read()
 
 
-def fetch_top_repos(username: str, limit: int) -> list[dict]:
+def github_headers() -> dict[str, str]:
     headers = {"Accept": "application/vnd.github+json"}
     token = os.environ.get("GITHUB_TOKEN", "").strip()
     if token:
         headers["Authorization"] = f"Bearer {token}"
+    return headers
+
+
+def fetch_top_contributions(username: str, limit: int) -> list[dict]:
+    headers = github_headers()
+    repo_urls: set[str] = set()
+
+    for page in range(1, 6):
+        query = urllib.parse.quote(
+            f"author:{username} type:pr is:merged -user:{username} is:public"
+        )
+        search_url = (
+            f"https://api.github.com/search/issues?q={query}&per_page=100&page={page}"
+        )
+        data = json.loads(http_get(search_url, headers=headers).decode("utf-8"))
+        items = data.get("items") or []
+        for item in items:
+            repo_url = item.get("repository_url")
+            if repo_url:
+                repo_urls.add(repo_url)
+        if len(items) < 100:
+            break
 
     repos: list[dict] = []
-    page = 1
-    while True:
-        url = f"https://api.github.com/users/{username}/repos?per_page=100&type=owner&page={page}"
-        batch = json.loads(http_get(url, headers=headers).decode("utf-8"))
-        if not batch:
-            break
-        repos.extend(batch)
-        if len(batch) < 100:
-            break
-        page += 1
+    for repo_url in sorted(repo_urls):
+        try:
+            repo = json.loads(http_get(repo_url, headers=headers).decode("utf-8"))
+        except (urllib.error.URLError, TimeoutError, ValueError):
+            continue
+        if repo.get("private") or repo.get("fork") or repo.get("archived"):
+            continue
+        repos.append(repo)
 
-    owned = [
-        r
-        for r in repos
-        if not r.get("fork")
-        and not r.get("archived")
-        and r.get("name") != username
-    ]
-    owned.sort(key=lambda r: int(r.get("stargazers_count", 0)), reverse=True)
-    return owned[:limit]
+    repos.sort(key=lambda r: int(r.get("stargazers_count", 0)), reverse=True)
+    return repos[:limit]
 
 
-def build_pin_card_html(repo_name: str) -> str:
-    encoded_repo = urllib.parse.quote(repo_name, safe="")
+def build_contrib_card_html(full_name: str) -> str:
+    encoded_repo = urllib.parse.quote(full_name, safe="/")
     base = (
         f"https://github-stats-extended.vercel.app/api/pin/"
         f"?username={GITHUB_USER}&repo={encoded_repo}"
-        f"&card_width=364&description_lines_count=2"
+        f"&show_owner=true&card_width=738&description_lines_count=1"
     )
     light_url = f"{base}&{LIGHT_STYLE}"
     dark_url = f"{base}&{DARK_STYLE}"
-    repo_url = f"https://github.com/{GITHUB_USER}/{repo_name}"
+    repo_url = f"https://github.com/{full_name}"
     return (
-        f'<a href="{repo_url}">'
+        f'<p align="left">\n'
+        f'  <a href="{repo_url}">'
         f"<picture>"
         f'<source media="(prefers-color-scheme: dark)" srcset="{dark_url}" />'
         f'<source media="(prefers-color-scheme: light)" srcset="{light_url}" />'
-        f'<img align="center" alt="{repo_name}" src="{light_url}" />'
+        f'<img align="center" alt="{full_name}" src="{light_url}" />'
         f"</picture>"
-        f"</a>"
+        f"</a>\n"
+        f"</p>"
     )
 
 
-def build_projects_markdown(top_repos: list[dict]) -> str:
-    rows: list[str] = []
-    for i in range(0, len(top_repos), 2):
-        pair = top_repos[i : i + 2]
-        cards = "&nbsp;&nbsp;".join(build_pin_card_html(r["name"]) for r in pair)
-        rows.append(f'<p align="left">\n  {cards}\n</p>')
-    return "\n".join(rows)
+def build_contributions_markdown(top_repos: list[dict]) -> str:
+    return "\n".join(build_contrib_card_html(r["full_name"]) for r in top_repos)
 
 
 def extract_slug(url: str) -> str:
@@ -166,15 +176,20 @@ def main() -> int:
     readme = README_PATH.read_text(encoding="utf-8")
 
     try:
-        top_repos = fetch_top_repos(GITHUB_USER, TOP_REPOS_COUNT)
-        if top_repos:
+        top_contribs = fetch_top_contributions(GITHUB_USER, TOP_CONTRIBS_COUNT)
+        if top_contribs:
             readme = replace_section(
-                readme, "PROJECTS", build_projects_markdown(top_repos)
+                readme, "CONTRIBUTIONS", build_contributions_markdown(top_contribs)
             )
-            names = ", ".join(f"{r['name']} ({r['stargazers_count']})" for r in top_repos)
-            print(f"Synced top {len(top_repos)} repos: {names}")
+            summary = ", ".join(
+                f"{r['full_name']} ({r['stargazers_count']})" for r in top_contribs
+            )
+            print(f"Synced top {len(top_contribs)} contributions: {summary}")
     except (urllib.error.URLError, TimeoutError, KeyError, ValueError) as exc:
-        print(f"Warning: failed to fetch top repos ({exc}); keeping existing section.", file=sys.stderr)
+        print(
+            f"Warning: failed to fetch top contributions ({exc}); keeping existing section.",
+            file=sys.stderr,
+        )
 
     try:
         en_items = parse_rss_items(http_get(FEED_EN_URL))
@@ -186,7 +201,10 @@ def main() -> int:
             )
             print(f"Synced {min(len(en_items), MAX_POSTS)} English posts from mizore.blog.")
     except (urllib.error.URLError, TimeoutError, ET.ParseError) as exc:
-        print(f"Warning: failed to fetch RSS feeds ({exc}); keeping existing section.", file=sys.stderr)
+        print(
+            f"Warning: failed to fetch RSS feeds ({exc}); keeping existing section.",
+            file=sys.stderr,
+        )
 
     README_PATH.write_text(readme, encoding="utf-8")
     return 0

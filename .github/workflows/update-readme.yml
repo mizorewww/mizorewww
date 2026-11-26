@@ -33,7 +33,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Sync Top Repositories and Recent Writing
+      - name: Sync Top Contributions and Recent Writing
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/update_readme.py
