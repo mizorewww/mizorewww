@@ -58,6 +58,55 @@ def github_headers() -> dict[str, str]:
     return headers
 
 
+def fetch_sponsors(username: str) -> list[dict[str, str]]:
+    token = os.environ.get("GITHUB_TOKEN", "").strip()
+    if not token:
+        return []
+    query = json.dumps(
+        {
+            "query": """
+            query($login: String!) {
+              user(login: $login) {
+                sponsors(first: 100) {
+                  nodes {
+                    ... on User { login name avatarUrl }
+                    ... on Organization { login name avatarUrl }
+                  }
+                }
+              }
+            }
+            """,
+            "variables": {"login": username},
+        }
+    ).encode("utf-8")
+    req = urllib.request.Request(
+        "https://api.github.com/graphql",
+        data=query,
+        headers={
+            "User-Agent": "mizorewww-profile-sync/1.0 (+https://github.com/mizorewww)",
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {token}",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        payload = json.loads(resp.read().decode("utf-8"))
+    nodes = (((payload.get("data") or {}).get("user") or {}).get("sponsors") or {}).get("nodes") or []
+    return [n for n in nodes if n and n.get("login")]
+
+
+def build_sponsors_markdown(sponsors: list[dict[str, str]]) -> str:
+    if not sponsors:
+        return ""
+    avatars = " ".join(
+        f'<a href="https://github.com/{s["login"]}" title="{s.get("name") or s["login"]}">'
+        f'<img src="{s["avatarUrl"]}&s=72" width="36" height="36" alt="@{s["login"]}" />'
+        f"</a>"
+        for s in sponsors
+    )
+    return f"\n#### Sponsors\n\n<p align=\"left\">\n  {avatars}\n</p>\n"
+
+
 def fetch_commit_count(username: str, full_name: str, fallback_prs: int) -> int:
     headers = github_headers()
     query = urllib.parse.quote(f"author:{username} repo:{full_name}")
@@ -303,6 +352,18 @@ def main() -> int:
     except (urllib.error.URLError, TimeoutError, ET.ParseError) as exc:
         print(
             f"Warning: failed to fetch RSS feeds ({exc}); keeping existing section.",
+            file=sys.stderr,
+        )
+
+    try:
+        sponsors = fetch_sponsors(GITHUB_USER)
+        readme = replace_section(
+            readme, "SPONSORS", build_sponsors_markdown(sponsors)
+        )
+        print(f"Synced {len(sponsors)} GitHub sponsors.")
+    except (urllib.error.URLError, TimeoutError, KeyError, ValueError) as exc:
+        print(
+            f"Warning: failed to fetch sponsors ({exc}); keeping existing section.",
             file=sys.stderr,
         )
 

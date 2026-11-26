@@ -9,6 +9,7 @@ First-year undergraduate at [SHIEP](https://www.shiep.edu.cn) in Shanghai. Build
     <a href="https://huggingface.co/aac6fef">huggingface</a> ·
     <a href="https://x.com/mizorewww">x.com</a> ·
     <a href="https://t.me/aac6fef">telegram</a> ·
+    <a href="https://github.com/sponsors/mizorewww">sponsor</a> ·
     <a href="mailto:www@mizore.blog">www@mizore.blog</a>
   </samp>
 </p>
@@ -33,7 +34,7 @@ First-year undergraduate at [SHIEP](https://www.shiep.edu.cn) in Shanghai. Build
 
 <!-- CONTRIBUTIONS:START -->
 <p align="left">
-  <a href="https://github.com/longbridge/gpui-kit"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/contrib-1-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/contrib-1-light.svg" /><img align="center" alt="longbridge/gpui-kit (19 commits)" src="./assets/contrib-1-light.svg" /></picture></a>
+  <a href="https://github.com/longbridge/gpui-kit"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/contrib-1-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/contrib-1-light.svg" /><img align="center" alt="longbridge/gpui-kit (20 commits)" src="./assets/contrib-1-light.svg" /></picture></a>
 </p>
 <p align="left">
   <a href="https://github.com/longbridge/gpui-fast"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/contrib-2-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/contrib-2-light.svg" /><img align="center" alt="longbridge/gpui-fast (13 commits)" src="./assets/contrib-2-light.svg" /></picture></a>
@@ -61,8 +62,12 @@ First-year undergraduate at [SHIEP](https://www.shiep.edu.cn) in Shanghai. Build
 ### Elsewhere & Contact
 
 - **Reach me** — [www@mizore.blog](mailto:www@mizore.blog) · Telegram [@aac6fef](https://t.me/aac6fef) ([group](https://t.me/+skT95sLJe9xhZDc1)) · X [@mizorewww](https://x.com/mizorewww)
-- **Support** — [Buy Me a Coffee](https://buymeacoffee.com/mizorewww) · EVM (`ETH` / `BSC` / `ARB` / `POL`): `0xea169FFfF00034DB719107A2d7F02C427E8BBaE3`
+- **Support** — [GitHub Sponsors](https://github.com/sponsors/mizorewww) · [Buy Me a Coffee](https://buymeacoffee.com/mizorewww) · EVM (`ETH` / `BSC` / `ARB` / `POL`): `0xea169FFfF00034DB719107A2d7F02C427E8BBaE3`
 - **PGP** — `57D7 F6DD 93E5 F4B6 F0FD 8C2B 0161 BB7D 23FB 7918`
+
+<!-- SPONSORS:START -->
+
+<!-- SPONSORS:END -->
 
 <details>
 <summary><samp>PGP public key block</samp></summary>
